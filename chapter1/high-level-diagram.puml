@@ -1,0 +1,25 @@
+@startuml
+!definelong Hexapod(XX)
+
+    node "Hexapod XX" {
+      [MCU] as XX##mcu
+      [LIDAR] as XX##lidar
+      [Camera] as XX##camera
+      [Bluetooth] as XX##bt 
+      [Motors] as XX##motors
+      [Motor Controller] as XX##mc
+      [Batteries] as XX##power
+    }
+    XX##mcu <-down-> XX##lidar
+    XX##mcu <-down-> XX##camera
+    XX##mcu <-up-> XX##bt
+
+    XX##mc <-left-> XX##motors
+    XX##mcu <-left-> XX##mc
+!enddefinelong
+
+Hexapod(1)
+Hexapod(2)
+Hexapod(3)
+
+@enduml
