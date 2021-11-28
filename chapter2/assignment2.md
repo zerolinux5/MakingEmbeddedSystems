@@ -1,9 +1,12 @@
 # Diagrams
 
 ## 2.1 Lesson
-### Idea Project Diagram
+### Idea Project Diagram Prompt
 Make a block diagram describing an embedded system you’d like to have or make. Be
 imaginative. Reality does not apply here.
+
+### Idea Project
+See [Hexapod Prompt](https://github.com/zerolinux5/MakingEmbeddedSystems/blob/main/chapter1/assigment1.md) for background on my imaginary system.
 
 ### Block Diagrams
 ![Hardware Block Diagram](imaginary_hardware_diagram.png?raw=true "Hardware Block Diagram")
