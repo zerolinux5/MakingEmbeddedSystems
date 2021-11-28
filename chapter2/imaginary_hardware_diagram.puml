@@ -1,0 +1,21 @@
+@startuml
+
+node "Hexapod Hardware" {
+  [Processor] as mcu
+  [LIDAR] as lidar
+  [ArduCam] as camera
+  [Bluetooth] as bt 
+  [Servo Motors x18] as motors
+  [PWM Driver] as mc
+  [Lipo Batteries] as power
+}
+
+mcu <-right-> camera: I2C, SPI
+mcu <-left-> lidar: UART
+mcu <-down-> mc: SPI
+mc <-down-> motors: PWM, power
+mcu <-up-> bt: SPI
+mcu <-down-> power: 5v
+mc <-right-> power: 5v
+
+@enduml

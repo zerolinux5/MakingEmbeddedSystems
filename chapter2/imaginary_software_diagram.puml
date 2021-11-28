@@ -1,0 +1,40 @@
+@startuml
+
+node "Hexapod Processor" {
+  node "Application Specific Layer" {
+    [RPLIDAR A1 Specifics] as lidarStruct
+    [nrf51 Specifics] as bt
+    [ArduCam SPI Connection] as cameraspi
+    [ArduCam I2C Configuration] as camerai2c
+    [TLC5947 Specifics] as pwmStruct
+  }
+  node "HAL Layer" {
+    [I2C Driver] as i2cdriver
+    [UART Driver] as uartdriver
+    [SPI Driver] as spidriver
+    [PWM Driver] as pwmDriver
+  }
+}
+node "External Peripherals" {
+  [Lipo Batteries] as power
+  [LIDAR] as lidar
+  [Servo Motors x18] as motors
+  [ArduCam] as cam
+  [Bluetooth Antenna] as btAntenna
+}
+
+cameraspi <-down-> spidriver
+bt <-down-> spidriver
+cam <-down-> spidriver
+btAntenna <-down-> spidriver
+
+camerai2c <-down-> i2cdriver
+i2cdriver <-down-> cam
+
+lidarStruct <-down-> uartdriver
+uartdriver <-down-> lidar
+
+pwmStruct <-down-> pwmDriver
+pwmDriver <-down-> motors
+
+@enduml

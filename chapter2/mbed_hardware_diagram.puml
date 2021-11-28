@@ -1,0 +1,11 @@
+@startuml
+
+node "DISCO-L476VG Hardware" {
+  [M4] as mcu
+  [LED] as led
+  [L3gd20] as imu
+}
+mcu -> led: GPIO
+mcu <-left-> imu: I2C
+
+@enduml

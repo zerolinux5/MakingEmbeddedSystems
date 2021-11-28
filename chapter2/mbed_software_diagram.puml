@@ -1,0 +1,23 @@
+@startuml
+
+node "M4 Processor" {
+  node "L476VG Board Specific Drivers" {
+    [L3gd20 Driver] as imuDriver
+  }
+  node "Mbed Layer" {
+    [GPIO Driver] as gpioDriver
+    [I2C Driver] as i2cDriver
+    [Printf] as printf
+    [Wait] as wait
+  }
+}
+node "External Peripherals" {
+  [LED] as led
+  [L3gd20] as imu
+}
+gpioDriver <-down-> led
+imuDriver <-down-> i2cDriver
+i2cDriver <-down-> imu
+
+
+@enduml
