@@ -1,0 +1,9 @@
+
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+chapter3/part2/.vscode/launch.json
+chapter3/part2/.vscode/settings.json
+chapter3/part2/.vscode/tasks.json
+*.out

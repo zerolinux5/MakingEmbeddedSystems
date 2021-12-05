@@ -1,0 +1,32 @@
+@startuml
+
+node "STM32F303VC Processor" {
+  [SPI] as spi
+  [GPIO] as gpio
+  [UART] as uart
+  [I2C] as i2c
+
+  uart -[hidden]-> i2c
+  uart -[hidden]-> spi
+  i2c -[hidden]> spi
+  i2c -[hidden]-> gpio
+}
+
+node LEDs
+node PushButtons
+node I3G4250D as gyro
+node LSM303AGR as accel
+node ExtensionHeaders as headers
+node STLinkV2 as stlink
+node MiniUSB as usb
+
+uart <-right-> stlink
+gpio <-down-> LEDs
+gpio <-down-> PushButtons
+gpio <-down-> headers
+spi <-right-> gyro
+i2c <-left-> accel
+stlink <-right-> usb
+
+
+@enduml
