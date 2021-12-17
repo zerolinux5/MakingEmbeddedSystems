@@ -8,15 +8,15 @@ What are the hardware registers that cause the LED to turn on and off? (From the
 ## Make Blinky Answers
 [stm32f303vc](https://www.st.com/resource/en/datasheet/stm32f303vc.pdf)
 
-![Register Memory Map](RegisterMap.png?raw=true "Register Memory Map")
+![Register Memory Map](RegisterMap.png?raw=true)
 Looking at my memory map the built in LEDs use GPIOE so the address would be:
 `0x4800 1000`
 My button registers use GPIOA so the address would be: `0x4800 0000`
 
 Adding a variable for the register shows the difference in the debugger of unpressed vs pressed:
 `unsigned long b = (*(int*)(0x48000010));`
-![Unpressed](unpressed.png?raw=true "Unpressed")
-![Pressed](pressed.png?raw=true "Pressed")
+![Unpressed](unpressed.png?raw=true)
+![Pressed](pressed.png?raw=true)
 
 
 ## File Definitions
