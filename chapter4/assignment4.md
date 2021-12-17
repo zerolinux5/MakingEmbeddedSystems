@@ -1,6 +1,6 @@
 # Project 4
 
-![BlinkProject](blinky.gif?raw=true)
+![BlinkProject](blinky.gif)
 
 ## Make Blinky Prompt
 What are the hardware registers that cause the LED to turn on and off? (From the processor manual, don’t worry about initialization.) What are the button registers that you read? Can you read that memory directly and see the button change in a debugger or by printing out the associated memory?
@@ -8,15 +8,15 @@ What are the hardware registers that cause the LED to turn on and off? (From the
 ## Make Blinky Answers
 [stm32f303vc](https://www.st.com/resource/en/datasheet/stm32f303vc.pdf)
 
-![Register Memory Map](RegisterMap.png?raw=true)
+![Register Memory Map](RegisterMap.png)
 Looking at my memory map the built in LEDs use GPIOE so the address would be:
 `0x4800 1000`
 My button registers use GPIOA so the address would be: `0x4800 0000`
 
 Adding a variable for the register shows the difference in the debugger of unpressed vs pressed:
 `unsigned long b = (*(int*)(0x48000010));`
-![Unpressed](unpressed.png?raw=true)
-![Pressed](pressed.png?raw=true)
+![Unpressed](unpressed.png)
+![Pressed](pressed.png)
 
 
 ## File Definitions
